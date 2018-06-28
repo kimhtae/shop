@@ -2,7 +2,7 @@ from django.conf import settings
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect, render
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -18,3 +18,7 @@ def signup(request):
 			'form': form,
 	})
 			
+			
+@login_required
+def profile(request):
+	return render(request, 'accounts/profile.html')
