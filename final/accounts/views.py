@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 # Create your views here.
 
@@ -12,9 +12,9 @@ def signup(request):
 		if form.is_valid():
 			form.save()
 			return redirect(settings.LOGIN_URL)
-		else:
-			form = UserCreationForm()
-		return render(request, 'accounts/signup_form.html', {
-				'form': form,
-		})
+	else:
+		form = UserCreationForm()
+	return render(request, 'accounts/signup_form.html', {
+			'form': form,
+	})
 			
