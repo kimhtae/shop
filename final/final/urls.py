@@ -21,8 +21,7 @@ from django.shortcuts import redirect
 urlpatterns = [
     path('admin/', admin.site.urls),
 	url(r'^accounts/', include('accounts.urls')),
-	#url(r'^baemin/', include('baemin.urls', namespace='baemin')),
-	path('baemin/', include('baemin.urls'), name = 'baemin'),
+	url(r'^baemin/', include('baemin.urls', namespace='baemin')),
 	url('', lambda r: redirect('baemin/'), name='root'),
 	
 	
