@@ -5,6 +5,8 @@ from django.conf import settings
 
 class Shop(models.Model):
 	name = models.CharField(max_length=100)
+	name_location = models.CharField(max_length=100)
+	name_kr = models.CharField(max_length=100)
 	tel = models.CharField(max_length=20)
 	addr = models.CharField(max_length=100)
 	# 정렬
@@ -17,6 +19,7 @@ class Shop(models.Model):
 class Item(models.Model):
 	shop = models.ForeignKey('Shop', on_delete=models.CASCADE)
 	name = models.CharField(max_length=100)
+	name_type = models.CharField(max_length=100)
 	price = models.PositiveIntegerField()
 	# 정렬
 	class Meta:
