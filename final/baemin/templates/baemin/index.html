@@ -1,15 +1,17 @@
 {% extends 'baemin/layout.html' %}
 
 {% block content %}
-	<h3>Store List</H3>
+	<h3>마시따 가맹점</H3>
 	
 	<table class="table table-bordered table-hover">
 		<thead>
 			<tr>
-				<th>Shop Name</th>
-				<th>Phone</th>
-				<th>Address</th>
-				<th>Order</th>
+				<th>가맹점코드</th>
+				<th>가맹점 위치</th>
+				<th>대표명</th>
+				<th>전화 번호</th>
+				<th>주소</th>
+				<th>주문하기</th>
 				
 			</tr>
 		</thead>
@@ -17,9 +19,11 @@
 			{% for shop in shop_list %}
 			<tr>
 				<td>{{ shop.name }}</td>
+				<td>{{ shop.name_location }}</td>
+				<td>{{ shop.name_kr }}</td>
 				<td>{{ shop.tel }}</td>
 				<td>{{ shop.addr }}</td>
-				<td><a href="{% url 'baemin:order_new' shop.id %}" class="btn btn-primary">Order</a></td>
+				<td><a href="{% url 'baemin:order_new' shop.id %}" class="btn btn-primary">주 문</a></td>
 				
 			</tr>			
 				
